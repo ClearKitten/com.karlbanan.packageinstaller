@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f1df6698a25d4d44b4d072990c25c7f, type: 3}
-  m_Name: NewProjectGroup
+  m_Name: NodeGraphKitPackage
   m_EditorClassIdentifier: KarlBanan.PackageInstaller.Editor::KarlBanan.PackageInstaller.PackageGroup
-  displayName: New Project Packages
+  displayName: Node Graph Kit Package
   catalog: {fileID: 11400000, guid: f0943f1a779cc4a448ff8c85b908832c, type: 2}
   packageNames:
-  - com.karlbanan.eventbus
-  - com.karlbanan.utils
+  - com.karlbanan.nodegraphkit
   - com.karlbanan.attributes
-  - com.karlbanan.saving
-  - com.karlbanan.stableids
