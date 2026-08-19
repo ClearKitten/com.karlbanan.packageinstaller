@@ -8,6 +8,7 @@ namespace KarlBanan.PackageInstaller
     public sealed class PackageInstallerWindow : EditorWindow
     {
         private const string CATALOG_PREF_KEY = "KarlBanan.PackageInstaller.Catalog";
+        private const string CATALOG_PATH = "Packages/com.karlbanan.packageinstaller/Catalog/PackageCatalog.asset";
 
         private PackageInstallerTab currentTab = PackageInstallerTab.Packages;
 
@@ -133,16 +134,15 @@ namespace KarlBanan.PackageInstaller
 
             GUI.Label(new(catalogLabelX, y + 2f, 48f, 18f), "Catalog", PackageInstallerStyles.MutedLabel);
 
-            EditorGUI.BeginChangeCheck();
+            Rect catalogRect = new(position.width - 234f, y, 150f, tabHeight);
 
-            PackageCatalog newCatalog = (PackageCatalog)EditorGUI.ObjectField(
-                new(position.width - 234f, y, 150f, tabHeight),
-                catalog,
-                typeof(PackageCatalog),
-                false
-            );
-
-            if (EditorGUI.EndChangeCheck()) SetCatalog(newCatalog);
+            if (PackageInstallerUtility.DrawActionButton(
+                    catalogRect,
+                    catalog != null ? catalog.name : "Select Catalog",
+                    PackageInstallerStyles.SelectionColor))
+            {
+                ShowCatalogMenu(catalogRect);
+            }
 
             if (PackageInstallerUtility.DrawActionButton(
                     new(position.width - 76f, y, 64f, tabHeight),
@@ -153,6 +153,25 @@ namespace KarlBanan.PackageInstaller
                 ReloadGroups();
                 PackageOps.Refresh();
             }
+        }
+
+        private void ShowCatalogMenu(Rect rect)
+        {
+            GenericMenu menu = new();
+
+            foreach (string guid in AssetDatabase.FindAssets("t:PackageCatalog"))
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                PackageCatalog found = AssetDatabase.LoadAssetAtPath<PackageCatalog>(path);
+
+                if (found == null) continue;
+
+                menu.AddItem(new GUIContent(path), found == catalog, () => SetCatalog(found));
+            }
+
+            if (menu.GetItemCount() == 0) menu.AddDisabledItem(new GUIContent("No catalogs found"));
+
+            menu.DropDown(rect);
         }
 
         private void DrawTabButton(Rect rect, string label, PackageInstallerTab tab)
@@ -241,13 +260,20 @@ namespace KarlBanan.PackageInstaller
 
             if (!string.IsNullOrEmpty(guid))
             {
-                catalog = AssetDatabase.LoadAssetAtPath<PackageCatalog>(AssetDatabase.GUIDToAssetPath(guid));
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                if(!string.IsNullOrEmpty(path)) catalog = AssetDatabase.LoadAssetAtPath<PackageCatalog>(path);
             }
 
             if (catalog != null) return;
 
-            string[] found = AssetDatabase.FindAssets("t:PackageCatalog");
-            if (found.Length > 0) catalog = AssetDatabase.LoadAssetAtPath<PackageCatalog>(AssetDatabase.GUIDToAssetPath(found[0]));
+            catalog = AssetDatabase.LoadAssetAtPath<PackageCatalog>(CATALOG_PATH);
+            if (catalog != null) return;
+
+            foreach(string found in AssetDatabase.FindAssets("t:PackageCatalog"))
+            {
+                catalog = AssetDatabase.LoadAssetAtPath<PackageCatalog>(AssetDatabase.GUIDToAssetPath(found));
+                if (catalog != null) return;
+            }
         }
 
         private void ReloadGroups()
