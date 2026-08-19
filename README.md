@@ -102,4 +102,4 @@ Installing a package that contains scripts triggers a compile and domain reload,
 
 ## License
 
-MIT Lisence. See [LICENCE.md](LICENCE.md).
+MIT Lisence. See [LICENSE.md](LICENSE.md).
