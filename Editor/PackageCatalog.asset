@@ -13,21 +13,58 @@ MonoBehaviour:
   m_Name: PackageCatalog
   m_EditorClassIdentifier: KarlBanan.PackageInstaller.Editor::KarlBanan.PackageInstaller.PackageCatalog
   packages:
-  - displayName: Event Bus
+  - displayName: KarlBanan Utils
+    packageName: com.karlbanan.utils
+    gitUrl: https://github.com/ClearKitten/com.karlbanan.utils.git
+    icon: {fileID: 0}
+    description: General helpers used everywhere. A singleton base class, coroutine
+      restart and stop extensions with tweening and easing, and centralized pointer
+      access with capture and world conversion.
+  - displayName: KarlBanan Attributes
+    packageName: com.karlbanan.attributes
+    gitUrl: https://github.com/ClearKitten/com.karlbanan.attributes.git
+    icon: {fileID: 0}
+    description: Inspector attributes for everyday work. Buttons on any method, required
+      field validation that blocks play mode, readonly fields, and serializeable
+      interface references.
+  - displayName: KarlBanan Event Bus
     packageName: com.karlbanan.eventbus
     gitUrl: https://github.com/ClearKitten/com.karlbanan.eventbus.git
     icon: {fileID: 0}
-    description: This is my static Event Bus using structs as events. It also contains
-      a event debug editor window.
-  - displayName: Editor Layout
+    description: A static event bus using structs as events, with priority based
+      subscriptions and a debugger window for inspecting events, subscriptions and
+      a live timeline.
+  - displayName: KarlBanan Saving
+    packageName: com.karlbanan.saving
+    gitUrl: https://github.com/ClearKitten/com.karlbanan.saving.git
+    icon: {fileID: 0}
+    description: A JSON save system with automatic folder resolution, optional AES
+      encryption, and slot based saving that collects data from registered objects.
+  - displayName: KarlBanan Editor Layout
     packageName: com.karlbanan.editorlayout
     gitUrl: https://github.com/ClearKitten/com.karlbanan.editorlayout.git
     icon: {fileID: 0}
-    description: This contains some easier ways to draw simple inspector elements
-      in custom editors wihtin columns and rows nicely.
-  - displayName: Editor Layout Extras
+    description: The core layout API for custom editors. Arranges inspector elements
+      into rows and columns with configureable sizing, spacing, padding and label
+      placement.
+  - displayName: KarlBanan Editor Layout Extras
     packageName: com.karlbanan.editorlayout.extras
     gitUrl: https://github.com/ClearKitten/com.karlbanan.editorlayout.extras.git
     icon: {fileID: 0}
-    description: This is the extras package to the standard Editor Layout package
-      and contains some extra editor layout stuff.
+    description: Ready to use inspector fields for Editor Layout. Buttons, toggles,
+      text, numbers, enums, objects, colors, sliders and vector fields. Requires
+      the core Editor Layout package.
+  - displayName: KarlBanan Stable IDs
+    packageName: com.karlbanan.stableids
+    gitUrl: https://github.com/ClearKitten/com.karlbanan.stableids.git
+    icon: {fileID: 0}
+    description: A ScriptableObject base class with a persistent ID from the asset
+      GUID, so save data and references survive renaming and moving. Requires the
+      Attributes package.
+  - displayName: KarlBanan Node Graph Kit
+    packageName: com.karlbanan.nodegraphkit
+    gitUrl: https://github.com/ClearKitten/com.karlbanan.nodegraphkit.git
+    icon: {fileID: 0}
+    description: A framework for building node graph editors. Define your graph and
+      node assets and get a full window with typed connections, groups, clipboard,
+      minimap and a data panel.
