@@ -1,0 +1,24 @@
+{
+  "name": "com.karlbanan.packageinstaller",
+  "version": "1.0.0",
+  "displayName": "KarlBanan Package Installer",
+  "description": "An editor window for installing, updating and removing git packages from a catalog of entries and groups.",
+  "unity": "6000.0",
+  "license": "MIT",
+  "documentationUrl": "https://github.com/ClearKitten/com.karlbanan.packageinstaller#readme",
+  "changelogUrl": "https://github.com/ClearKitten/com.karlbanan.packageinstaller/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/ClearKitten/com.karlbanan.packageinstaller/blob/main/LICENSE.md",
+  "keywords": [
+    "package-manager",
+    "git",
+    "installer",
+    "unity",
+    "unity-editor"
+  ],
+  "hideInEditor": false,
+  "dependencies": {},
+  "author": {
+    "name": "Karl Pettersson",
+    "url": "https://github.com/ClearKitten"
+  }
+}
