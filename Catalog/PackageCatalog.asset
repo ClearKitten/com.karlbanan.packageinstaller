@@ -68,3 +68,9 @@ MonoBehaviour:
     description: A framework for building node graph editors. Define your graph and
       node assets and get a full window with typed connections, groups, clipboard,
       minimap and a data panel.
+  - displayName: KarlBanan Timers
+    packageName: com.karlbanan.timers
+    gitUrl: https://github.com/ClearKitten/com.karlbanan.timers.git
+    icon: {fileID: 0}
+    description: Self ticking timers for gameplay. Countdown, stopwatch and frequency
+      timers with scaled or unscaled time, plus an allocation free cooldown struct.
