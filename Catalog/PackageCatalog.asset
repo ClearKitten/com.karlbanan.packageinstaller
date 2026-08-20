@@ -74,3 +74,9 @@ MonoBehaviour:
     icon: {fileID: 0}
     description: Self ticking timers for gameplay. Countdown, stopwatch and frequency
       timers with scaled or unscaled time, plus an allocation free cooldown struct.
+  - displayName: KarlBanan Package Installer
+    packageName: com.karlbanan.packageinstaller
+    gitUrl: https://github.com/ClearKitten/com.karlbanan.packageinstaller.git
+    icon: {fileID: 0}
+    description: This window. Installs, updates and removes packages from a catalog,
+      individually or in bulk, with groups for sets that belong together.
